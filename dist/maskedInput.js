@@ -22,6 +22,11 @@ export default {
         keyup: this.keyUp,
         textInput: this.textInput,
         mouseup: this.mouseUp,
+        click: this.click,
+        focus: this.focus,
+        mouseover: this.mouseover,
+        mouseleave: this.mouseleave,
+        blur: this.blur,
         focusout: this.focusOut,
         cut: this.cut,
         copy: this.copy,
@@ -128,6 +133,7 @@ export default {
                 }
               }
             }
+            /* eslint-enable */
           });
         }
         [].concat(_toConsumableArray(this.$refs.input.value)).reduce(function (memo, item) {
@@ -334,6 +340,24 @@ export default {
       } else {
         this.setNativeSelection();
       }
+    },
+
+
+    click: function click(e) {
+      e.stopPropagation();
+      this.$emit('click');
+    },
+    focus: function click() {
+      this.$emit('focus');
+    },
+    mouseover: function click() {
+      this.$emit('mouseover');
+    },
+    mouseleave: function click() {
+      this.$emit('mouseleave');
+    },
+    blur: function click() {
+      this.$emit('blur');
     }
   }
 };
